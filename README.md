@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser)
+
 # QuotaBot
 
 QuotaBot is a Discord bot written in Java using JDK 8 and later, built with the JDA library. It fetches a quote of a famous person from the quotable.io API and posts it in a specified channel every 24 hours.
