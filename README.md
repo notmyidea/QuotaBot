@@ -4,6 +4,7 @@ QuotaBot is a Discord bot written in Java using JDK 8 and later, built with the 
 
 ## Table of Contents
 - [Installation](#installation)
+- [Daemonizing](#daemonizing)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -22,13 +23,53 @@ QuotaBot is a Discord bot written in Java using JDK 8 and later, built with the 
 
 3. Run the bot:
    ```java -jar QuotaBot.jar```
-It's compiled in Java 17, so you need to have Java 17 installed on your system to run it.
+   It's compiled in Java 17, so you need to have Java 17 installed on your system to run it.
 ## Usage
 
 Configure the bot by editing the .env file with these values
 - TOKEN=token
 - QOTD_CHANNEL_ID=channelid
 
+## Daemonizing
+You can create a systemd service unit file to manage your Java application as a service. Here's how to setup a systemd service for your application:
+1. Create a new service file:
+   ```sudo nano /etc/systemd/system/quotabot.service```
+
+2. Add the following content
+```
+[Unit]
+Description=QuotaBot
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/home/<your_username>/QuotaBot
+# may be /root/QuotaBot/
+ExecStart=/usr/bin/java -jar /home/<your_username>/QuotaBot/QuotaBot-1.0-SNAPSHOT-jar-with-dependencies.jar
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+3. Now inform systemd about this new service:
+   ```sudo systemctl daemon-reload```
+
+4. Enable the service to start on boot:
+   ```sudo systemctl enable quotabot ```
+
+5. Now you can start your service:
+   ```sudo systemctl start quotabot```
+
+6. You can check the status of your service:
+   ```sudo systemctl status quotabot```
+
+7. To stop the service, you can use:
+   ```sudo systemctl stop quotabot```
+
+This configuration keeps your application running in the background and automatically starts it at system boot. It also restarts your application if it fails.
 ## Contributing
 
 Feel free to contribute to the development of QuotaBot. If you have suggestions, bug reports, or want to add new features, open an issue or create a pull request.
@@ -47,8 +88,7 @@ For any issues, questions, or support, contact the author:
 ## Version
 
 - **Current Version:** Working
-- **Last Update:** YYYY-MM-DD
--
+- **Last Update:** 2024.08.01
 
 ## Made for the [PUREFACTIONS](https://discord.gg/purefactions) discord server
 
