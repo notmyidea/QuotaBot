@@ -98,9 +98,6 @@ public class Main {
                     embed.setDescription(quote);
 
                     embed.setFooter("Quote of the Day", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png");
-                    //embed.setFooter("Wiki".formatted(EmbedType.LINK, "https://en.wikipedia.org/wiki/" + author.replace(" ", "_")));
-                    //embed.setFooter("Quote of the Day" + "   " + "Wiki".formatted(EmbedBuilder.URL_PATTERN, "https://en.wikipedia.org/wiki/" + author.replace(" ", "_")));
-                    //embed.setFooter("- " + author + "  [Wiki](" + authorUrl + ")", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png");
                     embed.setColor(Color.decode("#2596be"));
                     embed.setTimestamp(date.atStartOfDay());
 
