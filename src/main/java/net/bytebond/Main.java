@@ -27,15 +27,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    private static String token = "MTE5MzcxMTM3MDI2MTI0MTkyOQ.Gxz7ND.oKIfcEsUqC5hiCHCRVQrh2kZUi6SaYNA_xKqJY";
-    private static String QOTDChannelID = "1169705079041966261";
+    static Dotenv dotenv = Dotenv.load();
+
+    static String token = dotenv.get("TOKEN");
+    static String QOTDChannelID = dotenv.get("QOTD_CHANNEL_ID");
 
     public static void main(String[] args) throws LoginException, InterruptedException {
 
-        Dotenv dotenv = Dotenv.load();
 
-        String token = dotenv.get("TOKEN");
-        String QOTDChannelID = dotenv.get("QOTD_CHANNEL_ID");
 
         // < init JDA >
         JDA builder = JDABuilder.createDefault(token).enableIntents(

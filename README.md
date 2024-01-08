@@ -13,15 +13,15 @@ QuotaBot is a Discord bot written in Java using JDK 8 and later, built with the 
 ## Installation
 
 1. Clone the repository:
-```git clone https://github.com/notswedish/QuotaBot.git```
+   ```git clone https://github.com/notswedish/QuotaBot.git```
 
 2. Compile the bot:
-```javac -cp ".:path/to/JDA.jar:path/to/other/dependencies.jar" QuotaBot.java```
+   ```javac -cp ".:path/to/JDA.jar:path/to/other/dependencies.jar" QuotaBot.java```
 
 #### Or download the .jar in [the releases tab](https://github.com/notswedish/QuotaBot/releases)
 
 3. Run the bot:
-```java -cp ".:path/to/JDA.jar:path/to/other/dependencies.jar" QuotaBot```
+   ```java -cp ".:path/to/JDA.jar:path/to/other/dependencies.jar" QuotaBot```
 
 ## Usage
 
